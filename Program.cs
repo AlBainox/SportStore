@@ -1,7 +1,8 @@
 using SportsStore.Models;
 using System.Configuration;
 using Microsoft.EntityFrameworkCore;
-using SportStore.Models;
+using SportsStore.Models;
+using Microsoft.AspNetCore.Routing.Template;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +28,10 @@ app.MapRazorPages();
 app.UseRouting();
 app.UseEndpoints(endpoints =>
 {
+	endpoints.MapControllerRoute(
+	name: "pagination",
+	pattern: "Produkty/Strona{productPage}",
+	defaults: new { controller = "Product", action = "List" });
 	endpoints.MapControllerRoute(
 		name: "default",
 		pattern: "{controller = Product}/{action=List}/{id?}");

@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "rE2pKLlq7XgkYsoHKciJ2fU1gq0yEYrYiO/v+9CYelrISO2HQpiGXMPhOa5OvRZQ9HTdpuX+bl1XHynJ39ELmQ==",
+  "dgSpecHash": "D0XtOLZ1nblIBhRa9XeERh64j2VgtHEg4OiyTtLt3ZTiQlYxyz4K5M1cVcYVlTO/uv43eB1NUuTMM2jowX6rag==",
   "success": true,
-  "projectFilePath": "C:\\Users\\alber\\source\\repos\\SportStore\\SportStore.csproj",
+  "projectFilePath": "C:\\Users\\alber\\source\\repos\\SportStore\\SportsStore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alber\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\alber\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\alber\\.nuget\\packages\\bootstrap\\5.2.3\\bootstrap.5.2.3.nupkg.sha512",
     "C:\\Users\\alber\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\alber\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\alber\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",

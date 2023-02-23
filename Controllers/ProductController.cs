@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SportsStore.Models;
-using SportStore.Models.ViewModels;
+using SportsStore.Models.ViewModels;
 
 namespace SportsStore.Controllers
 {
@@ -12,6 +12,7 @@ namespace SportsStore.Controllers
 		{
 			_repository = repository;
 		}
+		//[Route("/Product/List", Name = "Custom")]
 		public ViewResult List(int productPage = 1)
 		=> View(new ProductListViewModel
 		{

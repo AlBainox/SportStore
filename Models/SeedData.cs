@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SportsStore.Models;
 
-namespace SportStore.Models
+namespace SportsStore.Models
 {
 	public static class SeedData
 	{
