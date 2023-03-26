@@ -12,11 +12,12 @@ namespace SportsStore.Controllers
 		{
 			_repository = repository;
 		}
-		//[Route("/Product/List", Name = "Custom")]
-		public ViewResult List(int productPage = 1)
+	
+		public ViewResult List(string category, int productPage = 1)
 		=> View(new ProductListViewModel
 		{
 			Products = _repository.Products
+			.Where(p=> category == null || p.Category == category)
 			.OrderBy(p => p.ProductID)
 			.Skip((productPage - 1) * PageSize)
 			.Take(PageSize),
@@ -25,7 +26,9 @@ namespace SportsStore.Controllers
 				CurrentPage = productPage,
 				ItemsPerPage = PageSize,
 				TotalItems = _repository.Products.Count()
-			}
+			},
+			CurrentCategory = category
+			
 		});
 		
 

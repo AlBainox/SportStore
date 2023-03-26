@@ -27,14 +27,26 @@ app.MapDefaultControllerRoute();
 app.MapRazorPages();
 app.UseRouting();
 app.UseEndpoints(endpoints =>
-{
+{	
 	endpoints.MapControllerRoute(
-	name: "pagination",
-	pattern: "Produkty/Strona{productPage}",
-	defaults: new { controller = "Product", action = "List" });
+		name: null,
+		pattern: "{category}/Strona{productPage:int}",
+		defaults: new { controller = "Product", action = "List"});
 	endpoints.MapControllerRoute(
-		name: "default",
-		pattern: "{controller = Product}/{action=List}/{id?}");
+		name: null,
+		pattern: "Strona{productPage:int}",
+		defaults: new { controller = "Product", action = "List", productPage = 1});
+	endpoints.MapControllerRoute(
+		name: null,
+		pattern: "{category}",
+		defaults: new { controller = "Product", action = "List", productPage = 1 });
+	endpoints.MapControllerRoute(
+		name: null,
+		pattern: "",
+		defaults: new { controller = "Product", action = "List", productPage = 1 });
+	endpoints.MapControllerRoute(
+		name: "null",
+		pattern: "{controller}/{action}/{id?}");
 });
 SeedData.EnsurePopulated(app);
 app.Run();
