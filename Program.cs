@@ -45,7 +45,7 @@ app.UseEndpoints(endpoints =>
 		pattern: "",
 		defaults: new { controller = "Product", action = "List", productPage = 1 });
 	endpoints.MapControllerRoute(
-		name: "null",
+		name: null,
 		pattern: "{controller}/{action}/{id?}");
 });
 SeedData.EnsurePopulated(app);
