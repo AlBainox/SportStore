@@ -12,6 +12,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<IProductRepository, EFProductRepository>();	
 builder.Services.AddMvc();
+builder.Services.AddMemoryCache();
+builder.Services.AddSession();
 var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
@@ -21,6 +23,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseSession();
 app.UseAuthorization();
 app.MapGet("/hi", () => "Hello!");
 app.MapDefaultControllerRoute();
