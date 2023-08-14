@@ -1,8 +1,5 @@
 using SportsStore.Models;
-using System.Configuration;
 using Microsoft.EntityFrameworkCore;
-using SportsStore.Models;
-using Microsoft.AspNetCore.Routing.Template;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +7,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetValue<string>("Data:ConnectionStrings:SportStoreProducts")));
 builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
-builder.Services.AddTransient<IProductRepository, EFProductRepository>();	
+builder.Services.AddTransient<IProductRepository, EFProductRepository>();
+builder.Services.AddScoped(sp => SessionCart.GetCart(sp));
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddTransient<IOrderRepository, EFOrderRepository>();
 builder.Services.AddMvc();
 builder.Services.AddMemoryCache();
 builder.Services.AddSession();
