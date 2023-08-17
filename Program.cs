@@ -60,4 +60,5 @@ app.UseEndpoints(endpoints =>
 		pattern: "{controller}/{action}/{id?}");
 });
 SeedData.EnsurePopulated(app);
+IdentitySeedData.EnsurePopulated(app);
 app.Run();

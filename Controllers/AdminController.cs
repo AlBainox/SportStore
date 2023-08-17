@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SportsStore.Models;
 
 namespace SportsStore.Controllers
 {
+	[Authorize]
 	public class AdminController : Controller
 	{
 		private IProductRepository _productRepository;
