@@ -11,7 +11,7 @@ using SportsStore.Models;
 
 namespace SportsStore.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(AppIdentityDbContext))]
     [Migration("20230814153512_ShippedOrders")]
     partial class ShippedOrders
     {

@@ -8,7 +8,7 @@ using SportsStore.Models;
 
 #nullable disable
 
-namespace SportsStore.Migrations
+namespace SportsStore.Migrations.ApplicationDb
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
