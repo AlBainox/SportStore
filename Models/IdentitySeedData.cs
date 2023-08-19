@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace SportsStore.Models
 {
@@ -7,14 +8,17 @@ namespace SportsStore.Models
 		private const string adminUser = "Admin";
 		private const string adminPassword = "Secret123$";
 		public static async void EnsurePopulated(IApplicationBuilder app)
-		{ 
-			UserManager<IdentityUser> userManager = app.ApplicationServices.GetRequiredService<UserManager<IdentityUser>>();
-			IdentityUser user= await userManager.FindByIdAsync(adminUser);
-
-			if (userManager == null)
+		{
+			using (var scope = app.ApplicationServices.CreateScope())
 			{
-				user = new IdentityUser("Admin");
-				await userManager.CreateAsync(user, adminPassword);
+				var userManager = (UserManager<IdentityUser>)scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+				IdentityUser user = await userManager.FindByIdAsync(adminUser);
+
+				if (user == null)
+				{
+					user = new IdentityUser("Admin");
+					await userManager.CreateAsync(user, adminPassword);
+				}
 			}
 		}
 	}

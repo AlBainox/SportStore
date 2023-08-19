@@ -32,11 +32,11 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseSession();
 app.UseAuthentication();
-app.UseAuthorization();
 app.MapGet("/hi", () => "Hello!");
 app.MapDefaultControllerRoute();
 app.MapRazorPages();
 app.UseRouting();
+app.UseAuthorization();
 app.UseEndpoints(endpoints =>
 {	
 	endpoints.MapControllerRoute(
